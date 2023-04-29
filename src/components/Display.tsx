@@ -1,4 +1,3 @@
-import { useGlobalContext } from '../context/context'
 import IncomeList from './IncomeList';
 import ExpenseList from './ExpenseList';
 const Display = () => {  

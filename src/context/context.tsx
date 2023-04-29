@@ -1,5 +1,5 @@
 /* eslint-disable no-case-declarations */
-import React, {useContext, createContext, useReducer, useEffect} from "react";
+import React, {useContext, createContext, useReducer} from "react";
 import { reducer, stateProp } from "./reducer";
 interface childrenProp {
     children: React.ReactNode;
@@ -8,8 +8,8 @@ interface contextProp {
     state: stateProp;
     handleTextChange(e: React.ChangeEvent<HTMLInputElement>): void;
     handleAmount(e: React.ChangeEvent<HTMLInputElement>): void;
-    handleSelect(e: React.ChangeEvent<HTMLInputElement>): void;
-    handleSubmit(e: React.ChangeEvent<HTMLInputElement>): void;
+    handleSelect(e: React.ChangeEvent<HTMLSelectElement>): void;
+    handleSubmit(e: React.FormEvent<HTMLFormElement>): void;
     removeItem(id: string, type: string): void;
     handleStorage(): void;
 }
@@ -33,10 +33,10 @@ const AppGlobalProvider = ({children}: childrenProp) => {
     const handleAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch({type: 'HANDLE_AMOUNT', payLoad: e})
     }
-    const handleSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
         dispatch({type: 'HANDLE_SELECT', payLoad: e})
     }
-    const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         dispatch({type: 'HANDLE_SUBMIT', payLoad: e})
     }
     const removeItem = (id: string, type: string) => {

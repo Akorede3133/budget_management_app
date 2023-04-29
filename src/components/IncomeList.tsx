@@ -3,11 +3,11 @@ import { useGlobalContext } from '../context/context';
 import { listProp } from '../context/reducer';
 const IncomeList = () => {
   const {state, removeItem} = useGlobalContext();
-  const {income, incomeStorage} = state;  
+  const {income} = state;  
   
   return (
     <div className='w-full'>
-      <p>INCOME</p>
+      <p className='pb-4'>INCOME</p>
       <ul>
         {
           income.map((item: listProp)  => {

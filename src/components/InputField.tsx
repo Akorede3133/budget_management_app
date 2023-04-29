@@ -1,13 +1,11 @@
 import { useGlobalContext } from "../context/context"
 const InputField = () => {
   const {state, handleTextChange, handleAmount, handleSelect, handleSubmit} = useGlobalContext();
-  const {text, amount, type} = state;
-  console.log(type);
-        
+  const {text, amount, type} = state;        
   return (
     <div className='  md:bg-purple-100 p-3'>
       <form action="" 
-      onSubmit={(e)=> handleSubmit(e)}
+      onSubmit={(e: React.FormEvent<HTMLFormElement>)=> handleSubmit(e)}
       className='flex 
       flex-col 
       md:flex-row
@@ -17,7 +15,7 @@ const InputField = () => {
       md:w-[800px]
       mx-auto
       '>
-        <select name="" id="" onChange={(e)=> handleSelect(e)} className=' mt-2 px-3 py-2 outline-none border'>
+        <select onChange={(e: React.ChangeEvent<HTMLSelectElement>)=> handleSelect(e)} className=' mt-2 px-3 py-2 outline-none border'>
           <option value="income">+</option>
           <option value="expenses">-</option>
         </select>

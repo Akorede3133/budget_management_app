@@ -1,7 +1,7 @@
 import { useGlobalContext } from "../context/context";
 import { listProp } from "../context/reducer";
 const Hero = () => {
-  const {state, handleStorage} = useGlobalContext();
+  const {state} = useGlobalContext();
   const {income, expense} = state  
   const months = [
   'January', 

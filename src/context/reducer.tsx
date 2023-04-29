@@ -13,11 +13,28 @@ export interface listProp {
     id: string;
     amount: number;
 }
-export interface actionProp {
+export type inputTargetProp = {
     type: string;
-    payLoad?: any;
-    // payLoad: React.ChangeEvent<HTMLInputElement> | string;
+    payLoad: React.ChangeEvent<HTMLInputElement>
 }
+export type formProp  = {
+    type: string;
+    payLoad: React.FormEvent<HTMLFormElement>;
+}
+export type selectProp  = {
+    type: string;
+    payLoad:  React.ChangeEvent<HTMLSelectElement>;
+}
+export type removeItemPayLoadProp = {
+    id: string;
+    type: string;
+}
+export type removeItemProp =  {
+    type: string;
+    payLoad?: removeItemPayLoadProp;
+}
+export type actionProp = any;
+
 export const reducer = (state: stateProp, action: actionProp) => {
     switch(action.type) {
         case "HANDLE_TEXT":
@@ -63,8 +80,6 @@ export const reducer = (state: stateProp, action: actionProp) => {
                 return {...state, expense: newList}
             }
         case "HANDLE_STORAGE":
-            console.log(state.incomeStorage);
-            
             return {...state, income: state.incomeStorage, expense: state.expenseStorage}
         default:
             return state;

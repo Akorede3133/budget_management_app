@@ -8,7 +8,7 @@ const ExpenseList = () => {
   }, 0)
   return (
     <div className='w-full'>
-        <p className='uppercase'>Expenses</p>
+        <p className='uppercase text-red-500 pb-4'>Expenses</p>
         <ul>
           {
             expense.map(item => {
